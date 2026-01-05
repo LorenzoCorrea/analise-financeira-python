@@ -3,8 +3,8 @@
 > Uma solução de **Data Analysis** automatizada para substituir planilhas manuais e gerar insights financeiros visuais.
 
 ## 📸 Preview
-![Dashboard Preview](dashboard_preview.png)
-*(Certifique-se de salvar um print do gráfico gerado na pasta do projeto com o nome dashboard_preview.png para ele aparecer aqui)*
+<img width="1193" height="579" alt="Screenshot_7" src="https://github.com/user-attachments/assets/243fdb3e-ec5e-46a8-88d6-394fdcf4ab07" />
+<img width="1200" height="500" alt="Figure_1" src="https://github.com/user-attachments/assets/6505b72b-9dae-4cfb-a18e-bcc7b116d5af" />
 
 ---
 
