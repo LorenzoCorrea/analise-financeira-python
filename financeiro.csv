@@ -1,4 +1,11 @@
 Data,Descricao,Categoria,Tipo,Valor
-01/01/2026,Salário,Renda,Entrada,2500.00
-02/01/0202,Aluguel,Fixo,Saida,1200.00
-03/01/2026,Burger King,Alimentacao,Saida,50.00
+05/01/2026,Salario,Renda,Entrada,3000.00
+05/01/2026,Aluguel,Moradia,Saida,1200.00
+06/01/2026,Mercado Semanal,Alimentacao,Saida,450.00
+07/01/2026,Gasolina,Transporte,Saida,200.00
+08/01/2026,Internet,Moradia,Saida,120.00
+09/01/2026,Cinema,Lazer,Saida,80.00
+10/01/2026,Burger King,Alimentacao,Saida,60.00
+10/01/2026,Spotify,Assinaturas,Saida,25.00
+12/01/2026,Freela Site,Renda,Entrada,800.00
+15/01/2026,Farmacia,Saude,Saida,150.00

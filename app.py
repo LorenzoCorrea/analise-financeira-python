@@ -1,5 +1,5 @@
 import csv
-import matplotlib.pyplot as plt # ### NOVO: Importando a ferramenta de gráficos
+import matplotlib.pyplot as plt
 
 transacoes = []
 
@@ -17,24 +17,16 @@ total_entradas = 0
 total_saidas = 0
 gastos_por_categoria = {}
 
-print("-" * 30)
-print("EXTRATO DETALHADO")
-print("-" * 30)
-
 for item in transacoes:
     valor = item['Valor']
-    descricao = item['Descricao']
     tipo = item['Tipo']
     categoria = item['Categoria']
 
     if tipo == 'Entrada':
         total_entradas += valor
-        print(f"[+] {descricao}: R$ {valor:.2f}")
-
     elif tipo == 'Saida':
         total_saidas += valor
-        print(f"[-] {descricao}: R$ {valor:.2f}")
-
+        # Lógica de acumular gastos por categoria
         if categoria in gastos_por_categoria:
             gastos_por_categoria[categoria] += valor
         else:
@@ -42,17 +34,30 @@ for item in transacoes:
 
 saldo_final = total_entradas - total_saidas
 
-# ### NOVO: Criando o Gráfico
-# O Matplotlib precisa de duas listas: uma com os nomes e outra com os valores
+# --- AQUI COMEÇA A MÁGICA VISUAL ---
+# Criando uma figura com 2 gráficos (subplots) lado a lado (1 linha, 2 colunas)
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+
+# GRÁFICO 1: Pizza (Gastos por Categoria)
 categorias = list(gastos_por_categoria.keys())
 valores = list(gastos_por_categoria.values())
 
-print("\n📊 Gerando gráfico...")
+ax1.pie(valores, labels=categorias, autopct='%1.1f%%', startangle=90)
+ax1.set_title('Onde estou gastando?')
 
-# Criando o gráfico de pizza
-plt.figure(figsize=(6, 6)) # Tamanho da figura
-plt.pie(valores, labels=categorias, autopct='%1.1f%%', startangle=140)
-plt.title('Distribuição dos Meus Gastos')
+# GRÁFICO 2: Barras (Entradas vs Saídas)
+resumo = ['Entradas', 'Saídas']
+valores_resumo = [total_entradas, total_saidas]
+cores = ['green', 'red'] # Verde para dinheiro entrando, Vermelho para saindo
 
-# Exibindo na tela
+barras = ax2.bar(resumo, valores_resumo, color=cores)
+ax2.set_title('Balanço do Mês')
+
+# Adicionando o valor em cima da barra para facilitar a leitura
+ax2.bar_label(barras, fmt='R$ %.2f')
+
+# Ajuste final para não ficar tudo apertado
+plt.tight_layout()
+
+print(f"✅ Dashboard Gerado! Saldo Final: R$ {saldo_final:.2f}")
 plt.show()
